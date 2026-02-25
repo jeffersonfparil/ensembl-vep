@@ -11,7 +11,7 @@ ensemble-vep/
 │   ├── cache.rs              # Tabix/FASTA offline reading logic
 │   ├── consequences.rs       # SO term calculation & Codon math
 │   └── intervals.rs          # Fast Lapper interval trees
-├── pyvep/                 # PYTHON ORCHESTRATOR
+└── vep_pyrs/                 # PYTHON ORCHESTRATOR
     ├── __init__.py
     ├── cache_manager.py      # Downloads and verifies databases
     ├── parallel_runner.py    # Multiprocessing VCF chunking
