@@ -1,2 +1,42 @@
-# SCM syntax highlighting & preventing 3-way merges
-pixi.lock merge=binary linguist-language=YAML linguist-generated=true -diff
+# =========================
+# Lockfiles (Preventing 3-way merges & hiding in PR diffs)
+# =========================
+uv.lock merge=binary linguist-language=TOML linguist-generated=true -diff
+Cargo.lock merge=binary linguist-language=TOML linguist-generated=true -diff
+
+# =========================
+# 1. Default Behavior
+# =========================
+# Auto-detect text files and normalize line endings to LF
+* text=auto
+
+# =========================
+# 2. Enforce Unix Line Endings (LF)
+# =========================
+# Prevents Windows from breaking your build scripts
+Makefile text eol=lf
+*.sh text eol=lf
+
+# =========================
+# 3. Source Code Diffing
+# =========================
+*.rs text diff=rust
+*.py text diff=python
+*.toml text
+*.json text
+
+# =========================
+# 4. Bioinformatics Test Data
+# =========================
+# Let Git read small test files as text so you can see changes
+*.vcf text
+*.gff text
+*.gff3 text
+*.fasta text
+*.fa text
+
+# STRICTLY treat compressed genomic files as binary to prevent corruption
+*.gz binary
+*.tbi binary
+*.fai binary
+*.bcf binary
