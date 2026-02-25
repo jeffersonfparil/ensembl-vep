@@ -1,0 +1,13 @@
+[package]
+name = "vep_core-rs"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "vep_core"
+crate-type = ["cdylib"] # Required to compile as a Python module
+
+[dependencies]
+pyo3 = { version = "0.19.0", features = ["extension-module"] }
+rust-lapper = "1.1.0"
+noodles = { version = "0.50.0", features = ["bgzf", "tabix", "core"] }

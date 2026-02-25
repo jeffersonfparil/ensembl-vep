@@ -1,0 +1,56 @@
+# =========================
+# Rust & Cargo
+# =========================
+# The target directory holds all compiled Rust binaries and can easily grow to gigabytes.
+/target/
+# (Note: We do NOT ignore Cargo.lock. It should be committed so builds are reproducible!)
+
+# =========================
+# Python & uv / pip
+# =========================
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python cache and compiled bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# =========================
+# Maturin Build Artifacts
+# =========================
+# Maturin places the compiled Python wheels (.whl) and source distributions here
+/dist/
+/build/
+*.egg-info/
+
+# =========================
+# Genomic Data & Caches
+# =========================
+# Prevent accidentally committing massive genomic databases or index files
+*.vcf.gz
+*.tbi
+*.fai
+*.gff3.gz
+*.fa.gz
+*.bam
+*.bai
+# Ignore any local test output VCFs you generate while playing with the CLI
+*output*.vcf
+
+# =========================
+# Project Specific (Makefile)
+# =========================
+# If you used the Makefile symlink method for the bin/ directory, uncomment the next line
+# /bin/
+
+# =========================
+# OS & IDE Settings
+# =========================
+.DS_Store
+.vscode/
+.idea/
+*.swp

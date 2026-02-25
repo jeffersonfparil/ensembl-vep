@@ -1,0 +1,22 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "vep_pyrs"
+version = "0.1.0"
+description = "A Rust-Python hybrid reimplementation of Ensembl VEP"
+requires-python = ">=3.8"
+dependencies = [
+    "maturin>=1.12.4",
+    "pysam>=0.21.0",
+    "pytest>=8.3.5",
+]
+
+[project.scripts]
+vep_pyrs = "vep_pyrs.cli:run_vep"
+variant_recoder = "vep_pyrs.cli:run_recoder"
+filter_vep = "vep_pyrs.cli:run_filter"
+
+[tool.maturin]
+module-name = "vep_pyrs.vep_core"
