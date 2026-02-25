@@ -1,5 +1,6 @@
 use pyo3::prelude::*;
 
+#[allow(dead_code)] 
 #[pyclass]
 pub struct OfflineCache {
     gff_path: String,
