@@ -3,7 +3,7 @@ from vep_pyrs.parallel_runner import ParallelRunner
 from vep_pyrs.cache_manager import CacheManager
 
 def run_vep():
-    parser = argparse.ArgumentParser(description="Hybrid VEP")
+    parser = argparse.ArgumentParser(description="VEP CLI (experimental Rust-Python hybrid)")
     parser.add_argument("-i", "--input", required=True)
     parser.add_argument("-o", "--output", required=True)
     args = parser.parse_args()

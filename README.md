@@ -12,16 +12,11 @@ ensemble-vep/
 │   ├── consequences.rs       # SO term calculation & Codon math
 │   └── intervals.rs          # Fast Lapper interval trees
 ├── pyvep/                 # PYTHON ORCHESTRATOR
-│   ├── __init__.py
-│   ├── cache_manager.py      # Downloads and verifies databases
-│   ├── parallel_runner.py    # Multiprocessing VCF chunking
-│   ├── writer.py             # VCF/JSON formatting and Headers
-│   └── plugin.py             # Base classes for user plugins
-└── bin/                      # COMMAND LINE EXECUTABLES
-    ├── vep
-    ├── variant_recoder
-    ├── haplo
-    └── filter_vep
+    ├── __init__.py
+    ├── cache_manager.py      # Downloads and verifies databases
+    ├── parallel_runner.py    # Multiprocessing VCF chunking
+    ├── writer.py             # VCF/JSON formatting and Headers
+    └── cli.py                # CLI
 ```
 
 ```mermaid
