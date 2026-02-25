@@ -1,5 +1,9 @@
 # ensembl-vep
 
+|**Build Status**|**License**|
+|:--------------:|:---------:|
+| <a href="https://github.com/jeffersonfparil/ensembl-vep/actions"><img src="https://github.com/jeffersonfparil/ensembl-vep/actions/workflows/tests.yml/badge.svg"></a> | [![License: GPL v3](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) |
+
 A draft re-implementation using a Rust-Python hybrid approach
 
 ```shell
