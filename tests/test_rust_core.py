@@ -22,7 +22,7 @@ def test_calculate_consequence_logic():
     assert deletion.calculate_consequence() == "frameshift_variant"
 
     # Insertion (Alt is longer than Ref)
-    insertion = VariationFeature("chr1", 100, "A", "AT")
+    insertion = VariationFeature("chr1", 100, "A", "ATCG")
     assert insertion.calculate_consequence() == "inframe_insertion"
 
 def test_interval_tree_overlaps():

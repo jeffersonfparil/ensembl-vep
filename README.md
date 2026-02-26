@@ -8,19 +8,25 @@ A draft re-implementation using a Rust-Python hybrid approach
 
 ```shell
 ensemble-vep/
-├── Cargo.toml                # Rust dependencies (pyo3, noodles, rayon)
-├── pyproject.toml            # Python build config (maturin)
-├──── src/                 # RUST CORE
-│   ├── lib.rs                # PyO3 module bindings
-│   ├── cache.rs              # Tabix/FASTA offline reading logic
-│   ├── consequences.rs       # SO term calculation & Codon math
-│   └── intervals.rs          # Fast Lapper interval trees
-└── vep_pyrs/                 # PYTHON ORCHESTRATOR
-    ├── __init__.py
-    ├── cache_manager.py      # Downloads and verifies databases
-    ├── parallel_runner.py    # Multiprocessing VCF chunking
-    ├── writer.py             # VCF/JSON formatting and Headers
-    └── cli.py                # CLI
+├── Cargo.toml             # Rust dependencies (pyo3, noodles, rayon)
+├── pyproject.toml         # Python build config (maturin)
+├── src/                # RUST CORE
+│   ├── lib.rs             # PyO3 module bindings
+│   ├── cache.rs           # Local caching/query/parsing (noodles)
+│   ├── consequences.rs    # Sequence ontology term calculation (codon math)
+│   └── intervals.rs       # Fast interval trees (rust-lapper)
+├── vep_pyrs/           # PYTHON ORCHESTRATOR
+│   ├── __init__.py
+│   ├── cache_manager.py   # Caching
+│   ├── parallel_runner.py # Multiprocessing and chunking
+│   ├── writer.py          # VCF formatting and writing
+│   └── cli.py             # CLI
+├── tests/              # TESTS
+│   ├── test_rust_core.py  # Test Rust components
+│   ├── test_caching.py    # Test caching
+│   ├── test_io.py         # Test IO
+│   └── test_cli.py        # Test CLI
+└── examples/           # EXAMPLES FOR TESTS
 ```
 
 ```mermaid

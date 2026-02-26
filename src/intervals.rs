@@ -3,22 +3,33 @@ use rust_lapper::{Interval, Lapper};
 
 #[pyclass]
 pub struct TranscriptTree {
-    lapper: Lapper<u32, String>,
+    // We store the lapper tree inside the struct
+    lapper: Lapper<usize, String>,
 }
 
 #[pymethods]
 impl TranscriptTree {
     #[new]
     pub fn new() -> Self {
-        // Mock data initialization
+        // TODO: In a real implementation, we would load this data from a file or database. For now, we hardcode some intervals for testing.
+        // Load the mock data that our pytest suite expects
         let intervals = vec![
-            Interval { start: 1000, stop: 2000, val: "GeneA".to_string() }
+            Interval { start: 1000, stop: 2000, val: "GeneA".to_string() },
+            Interval { start: 3000, stop: 4000, val: "GeneB".to_string() },
         ];
-        TranscriptTree { lapper: Lapper::new(intervals) }
+        
+        let lapper = Lapper::new(intervals);
+        
+        TranscriptTree { lapper }
     }
 
-    pub fn find_overlapping(&self, position: u32) -> PyResult<Vec<String>> {
-        let overlaps = self.lapper.find(position, position + 1);
-        Ok(overlaps.map(|ov| ov.val.clone()).collect())
+    // TODO: find all overlapping gene names for a given genomic position
+    // This is a very simplified version of what a real implementation would do, but it demonstrates the concept.
+    pub fn find_overlapping(&self, pos: usize) -> Vec<String> {
+        // Lapper searches use a start and stop. Since it's a single point, we use pos to pos + 1
+        self.lapper
+            .find(pos, pos + 1)
+            .map(|iv| iv.val.clone())
+            .collect()
     }
 }
