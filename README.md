@@ -6,6 +6,9 @@
 
 A draft re-implementation using a Rust-Python hybrid approach
 
+My rough high-level understanding: Given a set of variants (SNPs/structural), we determine whether or not they lie within annotated genes (transcribed/translated/regulatory). If they do, then we determine if they mess with (or not) with gene function (stop_gained, missense_variant, synonymous_variant,etc). If they do then we try to quantify the severity of the effects. 
+
+
 ```shell
 ensemble-vep/
 ├── Cargo.toml             # Rust dependencies (pyo3, noodles, rayon)
