@@ -9,12 +9,12 @@ def test_cache_manager_creates_directory(tmp_path, monkeypatch):
     # Trick CacheManager into using our temporary test directory
     monkeypatch.setattr(os.path, "expanduser", lambda x: x.replace("~", str(tmp_path)))
     
-    manager = CacheManager(version="test_115")
+    manager = CacheManager(version="test_cache")
     gff_path = manager.ensure_cache_exists()
     
     # Verify Python created the directory and mock file
     assert os.path.exists(gff_path)
-    assert "test_115" in gff_path
+    assert "test_cache" in gff_path
 
 def test_rust_offline_cache_reads():
     """Verify Rust can read the cache file path provided by Python."""
