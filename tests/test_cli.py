@@ -10,7 +10,7 @@ def dummy_vcf(tmp_path):
     vcf_path = tmp_path / "test_input.vcf"
     content = (
         "##fileformat=VCFv4.2\n"
-        "##contig=<ID=chr1,length=248956422>\n"  # <-- CRITICAL FIX HERE
+        "##contig=<ID=chr1,length=248956422>\n" 
         "#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\n"
         "chr1\t10000\t.\tA\tT\t.\tPASS\t.\n"
     )
