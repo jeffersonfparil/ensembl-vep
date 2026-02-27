@@ -2,7 +2,7 @@ import os
 
 class CacheManager:
     def __init__(self, version="115"):
-        self.cache_dir = os.path.expanduser(f"~/.hybrid_vep_cache/{version}")
+        self.cache_dir = os.path.expanduser(f"~/.vep_cache/{version}")
         self.gff = os.path.join(self.cache_dir, "transcripts.gff.gz")
 
     def ensure_cache_exists(self):
